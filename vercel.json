@@ -2,6 +2,7 @@
     "rewrites": [
       { "source": "/", "destination": "/api/index.js" },
       { "source": "/submit", "destination": "/api/index.js" },
-      { "source": "/processData", "destination": "/api/index.js" }
+      { "source": "/processData", "destination": "/api/index.js" },
+      {"source": "/picroll", "destination": "/api/index.js" }
     ]
   }
