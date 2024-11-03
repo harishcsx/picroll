@@ -1,19 +1,13 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
-const PORT = 4000;
-
-let access = 0;
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname,"login.html"));
+    res.sendFile(path.join(__dirname, "../index.html"));
 });
 
 app.get("/submit", (req, res) => {
-    if (access) {
-        access = 0;
-        const rollNumber = req.query.rollno;
+    const rollNumber = req.query.rollno;
     let imageTag = "";
     
     if (rollNumber) {
@@ -117,9 +111,6 @@ app.get("/submit", (req, res) => {
         </body>
         </html>
     `);
-    }else {
-        res.redirect("http://localhost:4000/");
-    }
 });
 
 // This line is needed for Vercel
