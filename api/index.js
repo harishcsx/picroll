@@ -10,28 +10,6 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname,"login.html"));
 });
 
-app.get("/processData", (req, res) =>{
-    const userId = req.query.email;
-
-    if (userId === "harish1"){
-        res.redirect("http://localhost:4000/picroll/")
-        access = 1;
-    } else {
-        res.send("access denied!")
-        access = 0;
-    }
-});
-
-
-app.get("/picroll", (req, res) => {
-    if (access) {
-        res.sendFile(path.join(__dirname, "index.html"));
-        access = 0;
-    } else {
-        res.redirect("http://localhost:4000/");
-    }
-});
-
 app.get("/submit", (req, res) => {
     if (access) {
         access = 0;
